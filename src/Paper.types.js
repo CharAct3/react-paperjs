@@ -48,10 +48,7 @@ const TYPES: Types = {
   [CONSTANTS.Line]: (props, paper) => new paper.Path.Line(props),
   [CONSTANTS.Rectangle]: (props, paper) => new paper.Path.Rectangle(props),
   [CONSTANTS.Circle]: (props, paper) => new paper.Path.Circle(props),
-  [CONSTANTS.PointText]: (props, paper, children) => new paper.PointText({
-    ...props,
-    content: children,
-  }),
+  [CONSTANTS.PointText]: (props, paper, children) => new paper.PointText(props),
 };
 
 export default TYPES;
