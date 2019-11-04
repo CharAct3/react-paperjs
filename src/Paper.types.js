@@ -9,6 +9,7 @@ export type Paper = {
   Group: typeof paperCore.Group,
   Path: typeof paperCore.Path,
   PointText: typeof paperCore.PointText,
+  Raster: typeof paperCore.Raster,
   container: Object,
   project: Object,
   view: Object,
@@ -32,6 +33,7 @@ const PAPER = {
   Rectangle: 'Rectangle',
   Circle: 'Circle',
   PointText: 'PointText',
+  Raster: 'Raster',
 };
 
 export const CONSTANTS = {
@@ -49,6 +51,7 @@ const TYPES: Types = {
   [CONSTANTS.Rectangle]: (props, paper) => new paper.Path.Rectangle(props),
   [CONSTANTS.Circle]: (props, paper) => new paper.Path.Circle(props),
   [CONSTANTS.PointText]: (props, paper, children) => new paper.PointText(props),
+  [CONSTANTS.Raster]: (props, paper) => new paper.Raster(props),
 };
 
 export default TYPES;
@@ -68,4 +71,5 @@ export const {
   Rectangle,
   Circle,
   PointText,
+  Raster,
 } = components;
