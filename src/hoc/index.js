@@ -1,1 +1,1 @@
-export { default as PaperScope, renderWithPaperScope } from './PaperScope';
+export { renderWithPaper } from './PaperScope';

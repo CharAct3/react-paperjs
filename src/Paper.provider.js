@@ -5,7 +5,7 @@ import paper, { typeof KeyEvent, typeof MouseEvent, typeof ToolEvent, typeof Eve
 
 import PaperRenderer from './Paper.renderer';
 import { type Paper, CONSTANTS } from './Paper.types';
-import { PaperScopeContext } from './hoc/PaperScope';
+import { createPaperScopeContext } from './hoc/PaperScope';
 
 type CanvasProps = {
   onWheel: (event: SyntheticWheelEvent<HTMLCanvasElement>) => any
@@ -66,7 +66,7 @@ export default (Container: React.ComponentType<any>) => class PaperProvider
   static defaultProps = {
     renderer: PaperRenderer,
     children: null,
-  }
+  };
 
   constructor(props: Props) {
     super(props);
@@ -84,6 +84,8 @@ export default (Container: React.ComponentType<any>) => class PaperProvider
   render() {
     const { innerRef, children, viewProps, canvasProps, ...rest } = this.props;
     const { viewProps: viewState, canvasProps: canvasState, ...state } = this.state;
+
+    const PaperScopeContext = createPaperScopeContext(canvasProps.id);
     return (
       <Container
         {...rest}
